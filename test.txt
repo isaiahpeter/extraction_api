@@ -1,0 +1,14 @@
+# Job history
+curl -X POST -F "file=@job_history.jpg" -F "proof_type=job" http://localhost:8000/api/extract/
+
+# Certificate
+curl -X POST -F "file=@certificate.pdf" -F "proof_type=certificate" http://localhost:8000/api/extract/
+
+# Skill
+curl -X POST -F "file=@github_screenshot.png" -F "proof_type=skill" http://localhost:8000/api/extract/
+
+# Milestone
+curl -X POST -F "file=@award.jpg" -F "proof_type=milestone" http://localhost:8000/api/extract/
+
+# Contribution
+curl -X POST -F "file=@article_screenshot.png" -F "proof_type=contribution" http://localhost:8000/api/extract/
