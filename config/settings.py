@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_spectacular',
+    'corsheaders',
     'extraction',
 ]
 
@@ -59,7 +60,10 @@ INSTALLED_APPS = [
 #    'django.contrib.messages.middleware.MessageMiddleware',
 #    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 #]
-MIDDLEWARE =[]
+MIDDLEWARE =[
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = []
@@ -155,3 +159,4 @@ CORS_ALLOWED_ORIGINS = [
     "https://ghonsi-proof.vercel.app/",
     "https://ghonsiproof.com/",
 ]
+CORS_ALLOWED_ALL_ORIGINS = True
