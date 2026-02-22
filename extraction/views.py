@@ -6,6 +6,7 @@ from drf_spectacular.types import OpenApiTypes
 from .ocr import extract_proof, PermanentAPIError, TransientAPIError
 import hashlib
 import json
+import os
 
 def hash_result(data: dict) -> str:
     """Generate validation hash from extraction result."""
@@ -129,4 +130,10 @@ class ExtractView(APIView):
             "flagged_fields":  result["low_confidence_fields"],
             "validation_hash": v_hash,
             "cached":          result.get("cache_hit", False),
+        })
+class DebugView(APIView):
+    def get(self, request):
+        return Response({
+            "api_key_exists": bool(os.environ.get("ANTHROPIC_API_KEY")),
+            "api_key_prefix": os.environ.get("ANTHROPIC_API_KEY", "")[:10] + "..." if os.environ.get("ANTHROPIC_API_KEY") else "NOT SET"
         })
