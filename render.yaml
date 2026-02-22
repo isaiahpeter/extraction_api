@@ -12,4 +12,4 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DJANGO_SETTINGS_MODULE
-        value: config.settings
+        value: "False"
